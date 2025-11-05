@@ -80,14 +80,14 @@ class MovieLikesView(generics.ListAPIView):
         return Like.objects.filter(movie_id=self.kwargs['movie_id'])
 
 
-from .serializers import UserRegisterSerializer  # ← ДОБАВЬ СЕРИАЛИЗАТОР
+from .serializers import UserRegisterSerializer  
 
 User = get_user_model()
 
 
 class RegisterView(generics.CreateAPIView):
     permission_classes = [permissions.AllowAny]
-    serializer_class = UserRegisterSerializer  # ← ЭТО ОБЯЗАТЕЛЬНО!
+    serializer_class = UserRegisterSerializer  
 
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
